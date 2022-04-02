@@ -1,0 +1,33 @@
+.listDrag {
+    padding: 0 0 90px 0;
+    display: flex;
+    align-items: center;
+    @include xs {
+        padding: 0 0 60px 0;
+    }
+    .item__img {
+        margin: 0 25px;
+        // width: 100%;
+        // height: 100%;
+        overflow: hidden;
+        @include md {
+            margin: 0 20px;
+        }
+        @include xs {
+            margin: 0 5px;
+            width: 100%;
+            height: 100%;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s;
+            &:hover {
+                -ms-transform: scale(1.2);
+                -webkit-transform: scale(1.2);
+                transform: scale(1.2);
+            }
+        }
+    }
+}

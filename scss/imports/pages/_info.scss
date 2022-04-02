@@ -1,0 +1,72 @@
+.info {
+    position: relative;
+    background: rgba(0, 0, 0, 0.3) url(../../../img/gregory.jpg) center/cover no-repeat;
+    background-attachment: fixed;
+    height: 640px;
+    @include xs {
+        height: 420px;
+    }
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .container {
+        position: relative;
+        .info__content {
+            padding-top: 80px;
+            position: absolute;
+            @include xs {
+                padding-top: 0;
+                position: relative;
+            }
+            .heading {
+                @include headingStyle($fz40-text, 1.25, $yellow-cl, uppercase, bold, 1px);
+                max-width: 440px;
+                padding-bottom: 30px;
+                @include xs {
+                    font-size: $fz35-text;
+                    letter-spacing: 0.7px;
+                    line-height: 1.3;
+                    padding-bottom: 30px;
+                }
+            }
+            .desc {
+                @include descStyle($fz-text, 22/16, $white-cl, 500, 0.375px);
+                max-width: 565px;
+                margin-bottom: 40px;
+                @include xs {
+                    font-size: $fz14-text;
+                    line-height: 1.6;
+                }
+            }
+            .btn {
+                color: $white-cl;
+                letter-spacing: 2.4px;
+                display: inline-flex;
+                align-items: center;
+                gap: 12px;
+                border: 2px solid $white-cl;
+                padding: 14px 57px;
+                @include xs {
+                    padding: 10px 50px;
+                    font-size: $fz12-text;
+                }
+                img {
+                    width: 21px;
+                    height: 21px;
+                }
+                &:hover {
+                    background-color: $yellow-cl;
+                }
+                &::after {
+                    content: "";
+                    display: none;
+                }
+            }
+        }
+    }
+}

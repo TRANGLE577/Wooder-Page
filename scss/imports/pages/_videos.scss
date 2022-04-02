@@ -1,0 +1,141 @@
+.videos {
+    @include xs {
+        margin-top: 0;
+    }
+    .container {
+        --widthHeading: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .video__content {
+            margin-bottom: 75px;
+            text-align: center;
+            @include xs {
+                width: 100%;
+            }
+            .heading {
+                position: relative;
+                @include headingStyle($fz40-text, 1, $black-cl, uppercase, bold, 2.8px);
+                margin-bottom: 50px;
+                @include xs {
+                    font-size: $fz30-text;
+                    letter-spacing: 0.2px;
+                    margin-bottom: 30px;
+                }
+                &::before {
+                    position: absolute;
+                    content: "";
+                    width: var(--widthHeading);
+                    height: 5px;
+                    background-color: $yellow-cl;
+                    top: 150%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+                .hyphen {
+                    display: inline-block;
+                    width: 22px;
+                    height: 5px;
+                    background-color: $black-cl;
+                    transform: translateY(-12px);
+                    @include xs {
+                        width: 10px;
+                        height: 3px;
+                    }
+                }
+            }
+            .desc {
+                width: 505px;
+                text-align: center;
+                @include descStyle($fz-text, 1.3, $black63-cl, none, 0.4px);
+                @include xs {
+                    width: 100%;
+                }
+            }
+        }
+        .video__item-wrap {
+            @include mid(true, space-around);
+            width: 100%;
+            @include xs {
+                flex-direction: column;
+            }
+            .video__content-item {
+                position: relative;
+                text-align: center;
+                @include xs {
+                    margin-bottom: 60px;
+                }
+                .video__item-img {
+                    width: 203px;
+                    height: 203px;
+                    position: relative;
+                    margin-bottom: 60px;
+                    //
+                    transition: opacity 0.5s ease;
+                    -webkit-transition: opacity 0.5s ease;
+                    -moz-transition: opacity 0.5s ease;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        width: 228px;
+                        height: 228px;
+                        border: 1px solid $blacke5-cl;
+                        border-radius: 100%;
+                        box-shadow: 0px 0px 2px 1px #999;
+                        transform: translate(-50%, -50%);
+                        opacity: 0.4;
+                    }
+                    &::after {
+                        position: absolute;
+                        content: "";
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        border-radius: 100px;
+                        width: 100%;
+                        height: 100%;
+                        background-color: $black01-cl;
+                        opacity: 0.4;
+                        @include transition(opacity 0.4);
+                        transition: all 0.5s ease;
+                    }
+                    &:hover::after {
+                        opacity: 0;
+                    }
+                    img {
+                        border-radius: 100px;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                    .btn__play {
+                        position: absolute;
+                        width: 57px;
+                        height: 57px;
+                        @include mid(false, none);
+                        z-index: 1;
+                    }
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+                .video__title {
+                    @include text($fz-text, $font-main, 1, $black-cl, none);
+                    font-weight: 600;
+                }
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 85%;
+                    left: 50%;
+                    width: 20px;
+                    height: 3px;
+                    background-color: $yellowcb-cl;
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
+    }
+}
