@@ -1,0 +1,154 @@
+body {
+    header {
+        width: 100%;
+        position: fixed;
+        padding: 30px 0;
+        left: 0;
+        top: 0;
+        z-index: 100;
+        transition: 0.3s;
+        &.active {
+            background-color: $black-bg-cl;
+            transition: 0.3s;
+            padding: 15px 0;
+        }
+        .container-fluid {
+            width: $container-max-width;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1;
+            .logo a {
+                display: flex;
+                align-items: center;
+                img {
+                    width: 180px;
+                    height: 22px;
+                    @media screen and (max-width: 360px) {
+                        width: 140px;
+                        height: 15px;
+                    }
+                }
+            }
+            .right {
+                .lang {
+                    position: relative;
+                    font-size: inherit;
+                    color: $white-cl;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    &__select {
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        color: inherit;
+                        font-size: inherit;
+                        gap: 3px;
+                        cursor: pointer;
+                        transition: all 0.5s ease-out;
+                        @media screen and (max-width: 360px) {
+                            font-size: $fz-text;
+                        }
+                        .dropdown {
+                            display: inline-block;
+                            width: 15px;
+                            height: 7px;
+                            @include md {
+                                width: 10px;
+                                height: 6px;
+                            }
+                            @media screen and (max-width: 360px) {
+                                width: 13px;
+                                height: 6px;
+                            }
+                        }
+                        &::before {
+                            content: "";
+                            width: 30px;
+                            height: 10px;
+                            background-color: transparent;
+                            position: absolute;
+                            top: 15px;
+                            right: 5px;
+                        }
+                        &:hover {
+                            color: $yellow-cl;
+                        }
+                    }
+                    &__options {
+                        display: none;
+                        position: absolute;
+                        top: 30px;
+                        right: 0;
+                        color: $black-cl;
+                        font-size: inherit;
+                        &-item {
+                            background-color: $white-bg-cl;
+                            color: inherit;
+                            border-radius: 5px;
+                            li {
+                                padding: 15px 25px;
+                                transition: all 0.5s ease-out;
+                                &:hover {
+                                    color: $yellow-cl;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                    }
+                    &.active {
+                        .lang__options {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include sm {
+    body {
+        header {
+            padding: 20px 0;
+            background-color: $black-bg-cl;
+            .container-fluid {
+                .logo a {
+                    img {
+                        width: 140px;
+                        height: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include xs {
+    body {
+        header {
+            .container-fluid {
+                padding-left: 15px;
+                padding-right: 15px;
+                .logo a {
+                    img {
+                        width: 160px;
+                        height: 18px;
+                    }
+                }
+                .right {
+                    .lang {
+                        &__select {
+                            --fz20-text: 20px;
+                            font-size: var(--fz20-text);
+                            .dropdown {
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

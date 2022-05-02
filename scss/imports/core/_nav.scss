@@ -1,0 +1,101 @@
+// css navigator (Menu)
+header {
+    .container-fluid {
+        position: relative;
+        .menu {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 72px;
+            list-style: none;
+            //media query
+            //1200-1
+            @include md {
+                gap: 50px;
+                font-size: $fz12-text;
+            }
+            //992-1
+            @include sm {
+                gap: 30px;
+                display: none;
+            }
+            &__item {
+                @include sm {
+                    color: $white-cl;
+                    padding: 12px 20px;
+                    transform: translateY(-40px);
+                }
+                a {
+                    text-decoration: none;
+                    font-size: $fz15-text;
+                    font-weight: bold;
+                    color: $white-cl;
+                    text-transform: uppercase;
+                    transition: all 0.5s ease-out;
+                    @include sm {
+                        font-size: $fz18-text;
+                    }
+                }
+                &:hover a {
+                    color: $yellow-cl;
+                }
+                &.active a {
+                    color: $yellow-cl;
+                }
+            }
+            &.active {
+                @include sm {
+                    position: fixed;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                    height: 100vh;
+                    background-color: $black-bg-cl;
+                    z-index: 162;
+                }
+            }
+        }
+        //
+        .right {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            .menu__icon {
+                display: none;
+                .line1,
+                .line2,
+                .line3 {
+                    width: 35px;
+                    height: 3px;
+                    margin: 3px;
+                    transition: all .4s;
+                    background-color: $yellow-cl;
+                }
+                @include sm {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    color: $yellow-cl;
+                }
+                &.active {
+                    @include sm {
+                        .line1 {
+                            transform: rotate(-45deg) translate(-6px, 6px);
+                        }
+                        .line2 {
+                            opacity: 0;
+                        }
+                        .line3 {
+                            transform: rotate(45deg) translate(-6px, -6px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,139 @@
+@-ms-viewport {
+    width: device-width;
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    box-sizing: border-box;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+html,
+body {
+    width: 100%;
+    max-width: $container-max-width;
+    margin: auto;
+    @include text($fz-text, $font-main, $lh-text, $text-cl, none);
+    behavior: smooth;
+    position: relative;
+    @include customscroll();
+    --pdSection: 90px;
+    --pdSectionMobile: 60px;
+    main {
+        width: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+        section {
+            padding: var(--pdSection) 0;
+            @include xs {
+                padding: var(--pdSectionMobile) 0;
+            }
+        }
+    }
+    .container {
+        max-width: $container-width;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .container-fluid {
+        max-width: 100%;
+        padding-right: 30px;
+        padding-left: 30px;
+        margin-right: auto;
+        margin-left: auto;
+        @include xs {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+    }
+    .row {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+    .no-gutters {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .no-gap>.col,
+    .no-gap>[class*="col-"] {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    .btn {
+        font-size: $fz14-text;
+        font-weight: bold;
+        text-decoration: none;
+        color: $black-cl;
+        text-transform: uppercase;
+        letter-spacing: 2.8px;
+        line-height: 1;
+        @include mid(true, none);
+        position: relative;
+        transition: all 0.1s ease-out;
+    }
+    .btn:hover {
+        cursor: pointer;
+        color: $yellow-cl;
+    }
+    .btn::after {
+        position: absolute;
+        content: "";
+        width: 40px;
+        height: 2px;
+        background-color: $yellow9e-cl;
+        left: 0;
+        top: 100%;
+        transform: translateY(10px);
+    }
+    @media (min-width: $xxs-min) {
+        .container {
+            max-width: 540px;
+        }
+    }
+    @media (min-width: $xs-min) {
+        .container {
+            max-width: 720px;
+        }
+    }
+    @media (min-width: $sm-min) {
+        .container {
+            max-width: 960px;
+        }
+    }
+    @media (min-width: $md-min) {
+        .container {
+            max-width: $container-width;
+        }
+    }
+    .mainwrapper {
+        width: 100%;
+        margin: auto;
+    }
+    @include lg {
+        // CSS responsive large desktop
+    }
+    @include md {
+        // CSS responsive desktop
+    }
+    @include sm {
+        // CSS responsive tablet
+    }
+    @include xs {
+        // CSS responsive mobile
+    }
+    @include xxs {
+        // CSS responsive small mobile
+    }
+}
